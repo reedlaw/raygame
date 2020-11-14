@@ -1,0 +1,7 @@
+[package]
+name = "raygame"
+version = "0.1.0"
+authors = ["Reed Law <reed@lawlap.top>"]
+
+[dependencies]
+float-cmp = "0.8.0"
