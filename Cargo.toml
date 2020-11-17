@@ -2,6 +2,7 @@
 name = "raygame"
 version = "0.1.0"
 authors = ["Reed Law <reed@lawlap.top>"]
+edition = "2018"
 
 [dependencies]
 float-cmp = "0.8.0"

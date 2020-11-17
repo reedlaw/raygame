@@ -1,26 +1,16 @@
-mod vector;
-
-struct Camera {
-}
-
-struct Point {
-    x: f32,
-    y: f32,
-    z: f32,
-}
-
-struct Sample {
-    x: f32,
-    y: f32,
-}
-
-fn build_sample(i: f32, j: f32) -> Sample {
-    Sample {
-        x: j + 0.5,
-        y: i + 0.5,
-    }
-}
+use raygame::vector::Vector;
 
 fn main() {
+    let vector = Vector {
+        x: 3.0,
+        y: 1.0,
+        z: 2.0,
+    };
+    
     println!("Hello, world!");
+}
+
+#[cfg(test)]
+mod tests {
+
 }
