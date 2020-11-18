@@ -1,5 +1,6 @@
 use raygame::vector::Vector;
 use raygame::ray::Ray;
+use raygame::camera::Camera;
 
 #[test]
 fn vector_eq() {
@@ -155,3 +156,38 @@ fn ray_get_point() {
     let point = Vector { x: 0.0, y: 0.707106781, z: 0.707106781 };
     assert!(ray.get_point()==point);
 }
+
+#[test]
+fn camera_get_alpha() {
+    let look_from = Vector { x: -1.0, y: 0.0, z: 0.0 };
+    let look_at = Vector { x: 1.0, y: 0.0, z: 0.0 };
+    let up = Vector { x: 0.0, y: 1.0, z: 0.0 };
+    let camera = Camera {
+        look_from: look_from,
+        look_at: look_at,
+        up: up,
+        fovy: 30.0,
+        fovx: 30.0,
+        width: 100.0,
+        height: 100.0,
+    };
+    assert!(camera.get_alpha(100.0) == 0.267949192);
+}
+
+#[test]
+fn camera_get_beta() {
+    let look_from = Vector { x: -1.0, y: 0.0, z: 0.0 };
+    let look_at = Vector { x: 1.0, y: 0.0, z: 0.0 };
+    let up = Vector { x: 0.0, y: 1.0, z: 0.0 };
+    let camera = Camera {
+        look_from: look_from,
+        look_at: look_at,
+        up: up,
+        fovy: 30.0,
+        fovx: 30.0,
+        width: 100.0,
+        height: 100.0,
+    };
+    assert!(camera.get_beta(0.0) == 0.267949192);
+}
+
