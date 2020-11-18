@@ -1,6 +1,7 @@
-use raygame::vector::Vector;
-use raygame::ray::Ray;
 use raygame::camera::Camera;
+use raygame::color::Color;
+use raygame::ray::Ray;
+use raygame::vector::Vector;
 
 #[test]
 fn vector_eq() {
@@ -191,3 +192,10 @@ fn camera_get_beta() {
     assert!(camera.get_beta(0.0) == 0.267949192);
 }
 
+#[test]
+fn color_new() {
+    let color = Color::new(0.5, 0.4, 0.3);
+    assert!(color.r == 127);
+    assert!(color.g == 102);
+    assert!(color.b == 76);
+}
