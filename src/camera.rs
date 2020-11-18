@@ -23,13 +23,7 @@ impl Camera {
         let alpha = self.get_alpha(sample.x);
         let beta = self.get_beta(sample.y);
         let direction = ((u*alpha)+(v*beta)-w).normalize();
-        Ray {
-            position: self.look_from,
-            direction: direction,
-            t: 1.0,
-            t_min: 0.01,
-            t_max: 1000000000.0,
-        }
+        return Ray::new(self.look_from, direction);
     }
 
     pub fn get_alpha(&self, j: f32) -> f32 {

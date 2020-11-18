@@ -1,5 +1,6 @@
 use raygame::camera::Camera;
 use raygame::color::Color;
+use raygame::light::Light;
 use raygame::ray::Ray;
 use raygame::vector::Vector;
 
@@ -198,4 +199,14 @@ fn color_new() {
     assert!(color.r == 127);
     assert!(color.g == 102);
     assert!(color.b == 76);
+}
+
+#[test]
+fn light_generate_shadow_ray() {
+    let local_point = Vector::new(0.0, 0.0, 0.0);
+    let light = Light { position: Vector::new(0.0, 0.0, 5.0), color: Color::new(0.5, 0.5, 0.5) };
+    let shadow_ray = light.generate_shadow_ray(local_point);
+    // println!("shadow_ray.position.z {}", shadow_ray.position.z);
+    assert!(shadow_ray.position == Vector::new(0.0, 0.0, 0.00049999997));
+    assert!(shadow_ray.direction == Vector::new(0.0, 0.0, 5.0));
 }

@@ -79,6 +79,14 @@ impl PartialEq for Vector {
 impl Eq for Vector {}
 
 impl Vector {
+    pub fn new(x: f32, y: f32, z: f32) -> Vector {
+        return Vector {
+            x: x,
+            y: y,
+            z: z,
+        }
+    }
+
     pub fn normalize(self) -> Vector {
         if self.x==0.0 && self.y==0.0 && self.z==0.0 {
             panic!("Cannot divide by zero!");
